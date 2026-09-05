@@ -1,5 +1,3 @@
-"""Solve and graph quadratic equations entered by the user."""
-
 import math
 
 import matplotlib.pyplot as plt
@@ -11,7 +9,6 @@ while True:
     except EOFError:
         break
 
-    # Pressing ENTER without typing a value ends the program.
     if a_text.strip() == "":
         break
 
@@ -24,7 +21,6 @@ while True:
     if discriminant < 0:
         print("no real solutions")
 
-        # Center the graph at the parabola's vertex.
         x_opt = -b / (2 * a)
         x_min = x_opt - 5
         x_max = x_opt + 5
@@ -32,7 +28,6 @@ while True:
         x1 = -b / (2 * a)
         print(f"one solution: {x1:.5f}")
 
-        # Put space on both sides of the repeated root.
         x_min = x1 - 5
         x_max = x1 + 5
     else:
@@ -41,13 +36,11 @@ while True:
         x2 = (-b + square_root) / (2 * a)
         print(f"two solutions: x1={x1:.5f} x2={x2:.5f}")
 
-        # Add a margin around the two roots so both are clearly visible.
         root_span = abs(x2 - x1)
         margin = max(2.0, root_span / 2)
         x_min = min(x1, x2) - margin
         x_max = max(x1, x2) + margin
 
-    # Plot the quadratic function using exactly 150 x-values.
     step = (x_max - x_min) / 149
     x_values = [x_min + i * step for i in range(150)]
     y_values = [a * x**2 + b * x + c for x in x_values]
