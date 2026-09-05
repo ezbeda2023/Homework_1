@@ -1,12 +1,9 @@
-"""Evaluate, tabulate, and graph a function entered by the user."""
-
 import math
 
 import matplotlib.pyplot as plt
 
 
 def plot_function(fun_str, domain, ns):
-    """Display a table and graph of a function over the given domain."""
     xmin, xmax = domain
     step = (xmax - xmin) / (ns - 1)
 
